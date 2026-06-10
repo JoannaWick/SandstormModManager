@@ -78,9 +78,9 @@ Change Log
     8. Dropped the internal Powershell Extractor for Zip files as it was limited and would fail if the file was larger than 4GB or
        if there were file crc errors that didn't corrupt the archive.
     9. Added error reporting and a lot more information as mod file are being downloaded and extracted.
-   10. If the numeric directory a mod is stored (ex: directory 123456 located in mod.io/254/mods/) has been deleted it will trigger 
+    10. If the numeric directory a mod is stored (ex: directory 123456 located in mod.io/254/mods/) has been deleted it will trigger 
        an automatic download and update when script has been executed.
-   11. Editing state.json to reflect updated mod download
+    11. Editing state.json to reflect updated mod download
 
 To Do
 =====
