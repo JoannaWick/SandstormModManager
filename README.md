@@ -39,7 +39,7 @@ subscriptions or mods which have been updated.
 If you receive a Warning List of files this just indicates 7-Zip found some unexpected things and the archive should have
 extracted without issue.
 
-If you receive an Error List of files you so scroll back up through Powershell to find those files to get more
+If you receive an Error List of files you should scroll back up through Powershell to find those files to get more
 detailed information about the error.  You can also see if the files were extracted or not.
 
 Common 7-Zip Unzipping Errors
