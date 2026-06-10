@@ -26,7 +26,7 @@ If you have done the setup once then it'll just read the settings from the confi
 should happen automatically. If you want to redo the setup, delete or rename `config.json` and it should show the prompts again.
 
 Do not delete the token.cfg file as it contains the token you need to use this script.  If you do delete the file you
-will need to go back to mod.io and create a NEW token.  Mod.io does not allow you to retreive an old token after you create.
+will need to go back to mod.io and create a NEW token.  Mod.io does not allow you to retrieve an old token after you create.
 A new token will always have to be created if you lose the one you were using.
 
 When you run it a window should open showing where your mod.io mod directory is located and asking if you would like to download
