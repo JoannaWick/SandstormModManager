@@ -26,7 +26,7 @@ If you have done the setup once then it'll just read the settings from the confi
 should happen automatically. If you want to redo the setup, delete or rename `config.json` and it should show the prompts again.
 
 Do not delete the token.cfg file as it contains the token you need to use this script.  If you do delete the file you
-will need to go back to mod.io and create a NEW token.  Mod.io does not allow you to retrieve an old token after you create.
+will need to go back to mod.io and create a NEW token.  Mod.io does not allow you to retreive an old token after you create.
 A new token will always have to be created if you lose the one you were using.
 
 When you run it a window should open showing where your mod.io mod directory is located and asking if you would like to download
@@ -39,7 +39,7 @@ subscriptions or mods which have been updated.
 If you receive a Warning List of files this just indicates 7-Zip found some unexpected things and the archive should have
 extracted without issue.
 
-If you receive an Error List of files you should scroll back up through Powershell to find those files to get more
+If you receive an Error List of files you so scroll back up through Powershell to find those files to get more
 detailed information about the error.  You can also see if the files were extracted or not.
 
 Common 7-Zip Unzipping Errors
@@ -66,20 +66,23 @@ Change Log
 
 0.1 (2026-06-12) Initial Release
 
-    1. Token variable moved to a token.cfg file so you will not need to get a new token if you delete the config.json and haven't
-       saved the old token id.
+    1. Token variable moved to a token.cfg file so you will not need to get a new token if you delete the 
+       config.json and haven't saved the old token id.
     2. Added getting the mod directory from the %localappdata%\mod.io\globalsettings.json
-    3. Added a GUI selector for location if you want the mod files unpacked to a different location for testing.
+    3. Added a GUI selector for location if you want the mod files unpacked to a different 
+       location for testing.
     4. A directory will now be created in the mod.io/mods directory using the mod_id for the download and unpack
        the mod files there.
     5. Removed Android platform support
-    6. config.json now contains the mod.io mod_id number and last update time for each mod for faster lookup of the latest update.
-    7. Mod.io json files have changed since the BoneLabModDownloader was created and it has been updated to work with the current system.
-    8. Dropped the internal Powershell Extractor for Zip files as it was limited and would fail if the file was larger than 4GB or
-       if there were file crc errors that didn't corrupt the archive.
+    6. config.json now contains the mod.io mod_id number and last update time for each mod for faster lookup
+       of the latest update.
+    7. Mod.io json files have changed since the BoneLabModDownloader was created and it has been updated to 
+       work with the current system.
+    8. Dropped the internal Powershell Extractor for Zip files as it was limited and would fail if the file 
+       was larger than 4GB or if there were file crc errors that didn't corrupt the archive.
     9. Added error reporting and a lot more information as mod file are being downloaded and extracted.
-    10. If the numeric directory a mod is stored (ex: directory 123456 located in mod.io/254/mods/) has been deleted it will trigger 
-       an automatic download and update when script has been executed.
+    10. If the numeric directory a mod is stored (ex: directory 123456 located in mod.io/254/mods/) has been 
+        deleted it will trigger an automatic download and update when script has been executed.
     11. Editing state.json to reflect updated mod download
 
 To Do
