@@ -7,7 +7,7 @@
 detailed information with image examples of the process.  When you run the script for the first time 
 you will be asked if you want to view the PDF.  Click on Y(es) is highly recommended.</mark>
 
-#If you see the following message when you run the script enter A or Y.
+# If you see the following message when you run the script enter A or Y.
 
 > Execution Policy Change
 
