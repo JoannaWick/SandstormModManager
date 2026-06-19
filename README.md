@@ -1,7 +1,5 @@
 # SandstormModManager
-# Original Bonelabs version by My-Bone-work
-# https://github.com/My-bones-work/BoneLabModsDownloader
-# Complete re-write for Insurgency Sandstorm 1.21 by Joanna Wick
+# Created for Insurgency Sandstorm 1.21 by Joanna Wick
 # Version: 1.0
 # Date: 2026-06-19
 
@@ -18,7 +16,8 @@ start the game.
 
 The Download Progress Bar has been disabled because it slows the actual downloads to a crawl. A 1MB download
 could take 15-20+ minutes no matter how fast your connection.  With the Download Progress diabled the downloads
-are very fast.  After downloading you will have an un-zip progress indicator that will run for each download.
+are very fast.  After downloading the time to download and download speed with be shown for the file.
+An un-zip progress indicator that will run for each download.
 
 The first time you run the script it will re-download all of the mods you are subscribed and reinstall them,
 build a new state.json and store it's own update data for use next time you run the script.  I am doing this
@@ -34,9 +33,7 @@ those mods so you will not need to do it manually.
 
 1. Download the zip file and extract it anywhere.
 2. Right-click the `Download_Sandstorm_Mods.ps1` file and select "Run with PowerShell".
-3. Where to store
-4. If you want to see more information of each mod you are subscribed enter Y for yes to enable Verbose mode.
-5. You will be asked for a mod.io Token if you have alread entered one just pre ENTER to continue using it.  If not...
+4. You will be asked for a mod.io Token and read the How_To_Use_Sandstorm_Mod_Manager.pdf for how to get one (REQUIRED).
 
 Use this method to get your Mod.io Token
 
@@ -50,23 +47,17 @@ Use this method to get your Mod.io Token
 7. When asked for the the Token 'OAuth token (Press ENTER to use CURRENT) []' paste what you have copied end press enter.
 
 Your token will be saved for future use.  If you ever delete the token.cfg file you will need to repeate the above process.
-You cannot retrieve the token at a later date.  You will need to delete the old token fromyour API Access page on
-mod.io and then recreate it again for a new token.
-
-If you have done the setup once then it'll just read the settings from the configuration file it generated and everything 
-should happen automatically. If you want to redo the setup, delete or rename `config.json` and it will re-download
-all mods and build a new state.json file.  A window should open showing where your mod.io mod directory is located and 
-asking if you would like to download and extract the files there overwriting the existing files.  If you just want to test 
-to make sure it is downloading the right files just enter N(o) and a GUI will open letting you select a location.
+You cannot retrieve the token at a later date.  You will need to delete the old token from your API Access page on
+mod.io and then recreate it again for a new token. Tokens have a 1 Year expiration date. When they expire you will
+need to delete the old one and create a new one.
 
 Re-running the script at a later date, will check your subscriptions for updates and only download mods from new 
 subscriptions or mods which have been updated.
 
-If after running this script and immediately start the game you see more than one mod downloadinging then the game may
-think the state.json is corrupt.  This is very, very rare.  You can delete the state.json and rename the
-sate_<date_time>.json back to state.json and everything will be back to normal.  As I daid it is a very, very rare occurrence
-but there will always be a backup file created just in case.  If the game runs without redownloading you can delete those
-backup files.
+If you start the game you and see more than one mod downloadinging then the game may think the state.json is corrupt 
+(vary rare). You can delete the state.json and rename the state_<date_time>.json (latestversion by time) back to 
+state.json and everything will be back to normal.  As I daid it is a very, very rare occurrence but there will always 
+be a backup file created just in case.  If the game runs without redownloading you can delete those backup files.
 
 If you receive a Warning List of files this just indicates 7-Zip found some unexpected things and the archive should have
 extracted without issue.
@@ -105,26 +96,25 @@ Change Log
        location for testing.
     4. A directory will now be created in the mod.io/mods directory using the mod_id to download and unpack
        the mod files.
-    5. Removed Android platform support and only support Windows.
-    6. config.json now contains the mod.io mod_id number and last update time for each mod for faster lookup
+    5. config.json now contains the mod.io mod_id number and last update time for each mod for faster lookup
        of the latest update.
-    7. Mod.io json files have changed since the BoneLabModDownloader was created and it has been updated to 
+    6. Mod.io json files have changed since the BoneLabModDownloader was created and it has been updated to 
        work with the current system.
-    8. Dropped the internal Powershell Extractor for Zip files as it was limited and would fail if the file 
+    7. Dropped the internal Powershell Extractor for Zip files as it was limited and would fail if the file 
        was larger than 4GB or if there were file crc errors that didn't corrupt the archive.
-    9. Added error reporting and a lot more information as mod files being downloaded and extracted.
-    10. If the numeric directory a mod is stored (ex: directory 123456 located in mod.io/254/mods/) has been 
-        deleted it will trigger an automatic download and update when script has been executed.
-    11. Completely rebuilding the state.json file using the subscribed mod information from mod.io.
-    12. Added Paging support for subscriptions that contain more than 100 mod files.
-    13. Added GUI to select mods for FORCED updating.
-    14. state.json is renamed to state_<date_time>.json before the new state.json is saved.  This will give
+    8. Added error reporting and a lot more information as mod files being downloaded and extracted.
+    9. If the numeric directory a mod is stored (ex: directory 123456 located in mod.io/254/mods/) has been 
+       deleted it will trigger an automatic download and update when script has been executed.
+    10. Completely rebuilding the state.json file using the subscribed mod information from mod.io.
+    11. Added Paging support for subscriptions that contain more than 100 mod files.
+    12. Added GUI to select mods for FORCED updating.
+    13. state.json is renamed to state_<date_time>.json before the new state.json is saved.  This will give
         you backups incase the newly created state.json does not for some reason.
-    15. Auto delete any mod Unsubscribed on Mod.io
-    16. Added Elaped Download Time and Download Speed for each mod downloaded.
-    17. Added ability to unsubscribed to mods and delete the stored files.
-    18. Added Menu to more easily select what to do instead of a ordered process.
-    19. Added my Insurgency-Sandstorm-mod.io Mover batch file to the package and created a menu selection
+    14. Auto delete any mod Unsubscribed on Mod.io
+    15. Added Elaped Download Time and Download Speed for each mod downloaded.
+    16. Added ability to unsubscribed to mods and delete the stored files.
+    17. Added Menu to more easily select what to do instead of a ordered process.
+    18. Added my Insurgency-Sandstorm-mod.io Mover batch file to the package and created a menu selection
 
 To Do
 =====
