@@ -1,13 +1,13 @@
 # SandstormModManager
-# Created for Insurgency Sandstorm 1.21 by Joanna Wick
-# Version: 1.0
-# Date: 2026-06-19
+## Created for Insurgency Sandstorm 1.21 by Joanna Wick
+### Version: 1.0
+### Date: 2026-06-19
 
 <mark>Recommend reading How_To_Use_Sandstorm_Mod_Manager.pdf the first time you run the script.  It will give
 detailed information with image examples of the process.  When you run the script for the first time 
 you will be asked if you want to view the PDF.  Click on Y(es) is highly recommended.</mark>
 
-# If you see the following message when you run the script enter A or Y.
+### If you see the following message when you run the script enter A or Y.
 
 > Execution Policy Change
 
