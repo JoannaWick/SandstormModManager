@@ -7,6 +7,14 @@
 detailed information with image examples of the process.  When you run the script for the first time 
 you will be asked if you want to view the PDF.  Click on Y(es) is highly recommended.</mark>
 
+#If you see the following message when you run the script enter A or Y.
+
+> [!NOTE]Execution Policy Change
+>The execution policy helps protect you from scripts that you do not trust. Changing the execution policy might expose
+>you to the security risks described in the about_Execution_Policies help topic at
+>http://go.microsoft.com/fwlink/?LinkID=135170. Do you want to change the execution policy?
+>[Y] Yes  [A] Yes to All  [N] No  [L] No to All  [S] Suspend  [?] Help (default is "N"):
+
 This PowerShell script will automatically download all subscribed mods for Insurgency Sandstorm from Mod.io
 and install them for use with your Sandstorm game on Windows and Windows Servers.  It will also update the
 state.json file located in the mod.io/254/metadata directory.  This is where the game stores all information 
