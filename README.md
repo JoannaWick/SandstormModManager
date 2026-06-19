@@ -1,9 +1,9 @@
-# SandstormModsDownloader
+# SandstormModManager
 # Original Bonelabs version by My-Bone-work
 # https://github.com/My-bones-work/BoneLabModsDownloader
-# Updated for Insurgency Sandstorm 1.21 by Joanna Wick
+# Complete re-write for Insurgency Sandstorm 1.21 by Joanna Wick
 # Version: 1.0
-# Date: 2026-06-17
+# Date: 2026-06-19
 
 This PowerShell script will automatically download all subscribed mods for Insurgency Sandstorm from Mod.io
 and install them for use with your Sandstorm game on Windows and Windows Servers.  It will also update the
@@ -96,7 +96,7 @@ and it looks like they were compressed and a bad CRC was created by whatever pro
 Change Log
 ==========
 
-1.0 (2026-06-17) Initial Release
+1.0 (2026-06-19) Initial Release
 
     1. Token variable moved to a token.cfg file so you will not need to get a new token if you delete the 
        config.json and haven't saved the old token id.
@@ -124,6 +124,7 @@ Change Log
     16. Added Elaped Download Time and Download Speed for each mod downloaded.
     17. Added ability to unsubscribed to mods and delete the stored files.
     18. Added Menu to more easily select what to do instead of a ordered process.
+    19. Added my Insurgency-Sandstorm-mod.io Mover batch file to the package and created a menu selection
 
 To Do
 =====
