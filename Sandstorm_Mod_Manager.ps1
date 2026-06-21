@@ -32,10 +32,6 @@ if (Test-Path token.cfg)
 {
     $token=Get-Content token.cfg
 }
-else
-{
-    $token=""
-}
 
 $enable_testing=0 # 0 - Disabled, 1 - Test Json output 
 
@@ -478,6 +474,11 @@ if (-not(Test-Path ModList.json))
     $ModListData | ConvertTo-Json | Set-Content ModList.json
 
     Change-OAuth-Token
+}
+
+if (Test-Path token.cfg)
+{
+    $token=Get-Content token.cfg
 }
 
 function Process-Subscriptions
