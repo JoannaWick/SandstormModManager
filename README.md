@@ -1,7 +1,7 @@
 # SandstormModManager
 ## Created for Insurgency Sandstorm 1.21 by Joanna Wick
 ### Version: 1.0
-### Date: 2026-06-19
+### Date: 2026-06-20
 
 <mark>Recommend reading Sandstorm_Mod_Manager_Guide.pdf the first time you run the script.  It will give
 detailed information with image examples of the process.  When you run the script for the first time 
@@ -102,7 +102,7 @@ and it looks like they were compressed and a bad CRC was created by whatever pro
 Change Log
 ==========
 
-1.0 (2026-06-19) Initial Release
+1.0 (2026-06-20) Initial Release
 
     1. Token variable moved to a token.cfg file so you will not need to get a new token if you delete the 
        config.json and haven't saved the old token id.
