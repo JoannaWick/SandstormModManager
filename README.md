@@ -130,6 +130,8 @@ Change Log
     16. Added ability to unsubscribed to mods and delete the stored files.
     17. Added Menu to more easily select what to do instead of a ordered process.
     18. Added my Insurgency-Sandstorm-mod.io Mover batch file to the package and created a menu selection
+    19. Renamed config.json to ModList.json to better reflect contents
+    20. Both Forced Download and Unsubscribe GUI are now sorted alphabetically
 
 To Do
 =====
