@@ -765,8 +765,9 @@ function Process-Subscriptions
 
                	Write-Host "  Unpacking $subname - $directory_ID - $modFilename" -ForegroundColor Cyan
 
-                .\bin\7za.exe x "zip\$modFilename" -o"$destinationMods$directory_ID" -aoa -y
-
+#                .\bin\7za.exe x "zip\$modFilename" -o"$destinationMods$directory_ID" -aoa -y
+               tar -xvf "zip\$modFilename" -C "$destinationMods$directory_ID"
+#               
                 if ($LASTEXITCODE -eq 0) {
                     Write-Host "Success: Archive extracted with no errors." -ForegroundColor Green
                     $error_success_msg += "Success: $subname - $directory_ID - $modFilename no errors."
