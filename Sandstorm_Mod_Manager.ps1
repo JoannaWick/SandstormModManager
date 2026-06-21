@@ -447,6 +447,32 @@ function Change-OAuth-Token
     # (write token so that the user doesn't have to get another token if they have to delete the ModList.json)
     $token=$tok
     $token | Set-Content token.cfg
+
+    $url = "https://api.mod.io/v1/me/"
+    $headers = @{
+        "Authorization" = "Bearer $token"
+        "Accept"        = "application/json"
+    }
+
+    try {
+        $response = Invoke-RestMethod -Uri $url -Method Get -Headers $headers -ErrorAction Stop
+    
+        Write-Host "Success: The token is valid!" -ForegroundColor Green
+        Write-Host "Authenticated as: $($response.username)"
+        Write-Host "User ID: $($response.id)"
+    }
+    catch [System.Net.WebException] {
+        if ($_.Exception.Response.StatusCode -eq 401) {
+            Write-Host "Failure: The token is invalid, expired, or has been revoked." -ForegroundColor Red
+        } else {
+            Write-Host "Error: $($_.Exception.Message)" -ForegroundColor Yellow
+        }
+        Change-OAuth-Token
+    }
+    catch {
+        Write-Host "An unexpected error occurred: $($_.Exception.Message)" -ForegroundColor Red
+        Change-OAuth-Token
+    }
 }
 
 if (-not(Test-Path ModList.json))
@@ -926,6 +952,9 @@ function Show-Menu {
     Write-Host "       Current Setting: $verboseText" -ForegroundColor Green
     Write-Host ""
     Write-Host "    6. Change OAuth token"
+    Write-Host "       $valid_Personal_Token" -ForegroundColor Green
+    Write-Host "       $valid_Personal_Username"
+    Write-Host "       $valid_Personal_UserID"
     Write-Host ""
     Write-Host "    7. Move Mod.io Mod Directory to new Location"
     Write-Host ""
@@ -933,6 +962,32 @@ function Show-Menu {
     Write-Host ""
     Write-Host "==============================================" -ForegroundColor Cyan
     Write-Host ""
+}
+
+$url = "https://api.mod.io/v1/me/"
+$headers = @{
+    "Authorization" = "Bearer $token"
+    "Accept"        = "application/json"
+}
+
+try {
+    $response = Invoke-RestMethod -Uri https://api.mod.io/v1/me/ -Method Get -Headers $headers -ErrorAction Stop
+
+    $valid_Personal_Token = "Success: The token is valid!"
+    $valid_Personal_Username = "Authenticated as: $($response.username)"
+    $valid_Personal_UserID = "User ID: $($response.id)"
+}
+catch [System.Net.WebException] {
+    if ($_.Exception.Response.StatusCode -eq 401) {
+        Write-Host "Failure: The token is invalid, expired, or has been revoked." -ForegroundColor Red
+    } else {
+        Write-Host "Error: $($_.Exception.Message)" -ForegroundColor Yellow
+    }
+    Change-OAuth-Token
+}
+catch {
+    Write-Host "An unexpected error occurred: $($_.Exception.Message)" -ForegroundColor Red
+    Change-OAuth-Token
 }
 
 do {
@@ -981,7 +1036,7 @@ do {
         }
     }
     
-    if ($selection -ne '4' -and $selection -ne '5' -and $selection -ne '6' -and $selection -ne '7' -and $selection -ne '8') {
+    if ($selection -ne '4' -and $selection -ne '5' -and $selection -ne '7' -and $selection -ne '8') {
         Write-Host "`nPress any key to return to the menu..." -ForegroundColor White
         $null = [System.Console]::ReadKey($true)
     }
