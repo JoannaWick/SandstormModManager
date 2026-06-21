@@ -3,7 +3,7 @@
 ### Version: 1.0
 ### Date: 2026-06-19
 
-<mark>Recommend reading How_To_Use_Sandstorm_Mod_Manager.pdf the first time you run the script.  It will give
+<mark>Recommend reading Sandstorm_Mod_Manager_Guide.pdf the first time you run the script.  It will give
 detailed information with image examples of the process.  When you run the script for the first time 
 you will be asked if you want to view the PDF.  Click on Y(es) is highly recommended.</mark>
 
