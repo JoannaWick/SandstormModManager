@@ -132,6 +132,7 @@ Change Log
     18. Added my Insurgency-Sandstorm-mod.io Mover batch file to the package and created a menu selection
     19. Renamed config.json to ModList.json to better reflect contents
     20. Both Forced Download and Unsubscribe GUI are now sorted alphabetically
+    21. Personal Access Token is validated and Username and ID shown in Main Menu
 
 To Do
 =====
