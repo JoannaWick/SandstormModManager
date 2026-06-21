@@ -840,18 +840,19 @@ function Process-Subscriptions
     # Display WARNING about zip file for each mod
     if ($error_warning -ne 0) {
         echo "=============================================="
-        echo ""
         Write-Warning "Warning: $error_warning file(s)"
+        echo ""
         $error_warning_msg | ForEach-Object { "$_" }
     }
 
     # Display mod files that had errors while unzipping
     if ($error_fatal -ne 0) {
         echo "=============================================="
-        Write-Error "Error: $error_fatal file(s)"
+        echo "Error: $error_fatal file(s)"
         echo ""
-        Write-Error "If a CRC-ERROR files may have extracted without a problem."
-        Write-Error "Scroll up to find the mod to verify."
+        echo "If a CRC-ERROR files may have extracted without a problem."
+        echo "Scroll up to find the mod to verify."
+        echo ""
         $error_fatal_msg | ForEach-Object { "$_" }
     }
 
