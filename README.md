@@ -1,6 +1,6 @@
 # SandstormModManager
 ## Created for Insurgency Sandstorm 1.21 by Joanna Wick
-### Version: 1.0
+### Version: 1.0.1
 ### Date: 2026-06-20
 
 <mark>Recommend reading Sandstorm_Mod_Manager_Guide.pdf the first time you run the script.  It will give
@@ -101,6 +101,12 @@ and it looks like they were compressed and a bad CRC was created by whatever pro
 
 Change Log
 ==========
+
+1.0.1 (2026-06-20)
+
+    1. Script will now make sure your Personal Access Token is valid every time you run the script and indicate
+       it is valid in the menus and under who User Name and ID it belongs.  If it detects an invalid PAT you will
+       be taken to the Change Token menu item so you can enter a new token.
 
 1.0 (2026-06-20) Initial Release
 
