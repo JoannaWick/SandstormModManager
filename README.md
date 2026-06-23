@@ -7,6 +7,8 @@
 detailed information with image examples of the process.  When you run the script for the first time 
 you will be asked if you want to view the PDF.  Click on Y(es) is highly recommended.</mark>
 
+## YOU MUST RUN THE RunMeFirst-Set-Execution-Policy-Bypass.bat before you run the Sandstorm Mod Manager Script.
+
 ### If you see the following message when you run the script enter A or Y.
 
 > Execution Policy Change
@@ -106,6 +108,8 @@ Change Log
 
     1. When Processing Subscriptions is complete the total time downloading will be displayed in minutes:seconds,
        Total GB downloaded and Total GB of disk stoage space used.
+    2. Added RunMeFirst-Set-Execution-Policy-Bypass.bat Run this first or Windows will not allow you to run
+       the Powershel Script.
 
 1.0.1 (2026-06-20)
 
