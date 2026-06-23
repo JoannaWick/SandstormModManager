@@ -1,6 +1,6 @@
 # SandstormModManager
 ## Created for Insurgency Sandstorm 1.21 by Joanna Wick
-### Version: 1.0.1
+### Version: 1.0.2
 ### Date: 2026-06-20
 
 <mark>Recommend reading Sandstorm_Mod_Manager_Guide.pdf the first time you run the script.  It will give
@@ -101,6 +101,11 @@ and it looks like they were compressed and a bad CRC was created by whatever pro
 
 Change Log
 ==========
+
+1.0.2 (2026-06-23)
+
+    1. When Processing Subscriptions is complete the total time downloading will be displayed in minutes:seconds,
+       Total GB downloaded and Total GB of disk stoage space used.
 
 1.0.1 (2026-06-20)
 

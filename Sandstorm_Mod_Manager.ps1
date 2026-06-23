@@ -9,6 +9,8 @@
 1. Nothing
 #>
 
+Set-Location -Path $PSScriptRoot
+
 $settingsPath = Join-Path $env:LOCALAPPDATA "mod.io\globalsettings.json"
 
 if (Test-Path $settingsPath) {
@@ -27,6 +29,9 @@ $destination_Store=$destination
 $jsonPathing = $destination
 $verbose = 0
 $global:forced_updates = 0
+$totalMBdownloaded = 0
+$totalMBdiskStorage = 0
+$totalTimeDownloading = 0
 
 if (Test-Path token.cfg)
 {
@@ -751,6 +756,8 @@ function Process-Subscriptions
                 # Calculate file size and download metrics
                 $fileSizeInBytes = (Get-Item "zip\$modFilename").Length
                 $totalSeconds = $elapsedTime.TotalSeconds
+                $totalMBdownloaded += $fileSizeInBytes
+                $totalTimeDownloading += $totalSeconds
             
                 # Convert bytes to Megabits (Mb) for industry standard network speed (Mbps)
                 $fileSizeInBits = $fileSizeInBytes * 8
@@ -779,6 +786,9 @@ function Process-Subscriptions
                     $error_fatal_msg += "Failure: $subname - $directory_ID - $modFilename code $LASTEXITCODE."
                     $error_fatal++
                 }
+
+                $dirSize = (Get-ChildItem "$destinationMods$directory_ID" -Recurse -File -ErrorAction SilentlyContinue | Measure-Object -Property Length -Sum).Sum
+                $totalMBdiskStorage += $dirSize
 
                 Remove-Item -Path "zip\$modFilename"
         	    }
@@ -829,6 +839,17 @@ function Process-Subscriptions
 
     # 3. Export to a valid UTF-8 file
     $cleanJson | Out-File "$destinationMetadata$jsonfilename" -Encoding utf8
+
+    # Display Total DL Time, Total GB downloaded, Total Disk Space Used 
+    echo "=============================================="
+    echo ""
+    $formattedTime = (New-TimeSpan -Seconds $totalTimeDownloading).ToString("mm\:ss")
+    Write-Host "Total Download Time: $formattedTime" -ForegroundColor Cyan
+    $diskStorageInGB = [Math]::Round(($totalMBdownloaded / 1GB), 2)
+    Write-Host "Total Download Size: $diskStorageInGB GB" -ForegroundColor Green
+    $diskStorageInGB = [Math]::Round(($totalMBdiskStorage / 1GB), 2)
+    Write-Host "Total Disk Storage : $diskStorageInGB GB" -ForegroundColor Yellow
+    echo ""
 
     # Display Successful Downloaded and Installed message for each mod file
     if ($error_success -ne 0) {
